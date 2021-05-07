@@ -1,0 +1,431 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@font-face {
+  font-family: "filesharingapp-shaheb";
+  src: url("fonts/filesharingapp-shaheb.eot");
+  src: url("fonts/filesharingapp-shaheb.eot?#iefix") format("embedded-opentype"), url("fonts/filesharingapp-shaheb.woff") format("woff"), url("fonts/filesharingapp-shaheb.ttf") format("truetype"), url("fonts/filesharingapp-shaheb.svg#filesharingapp-shaheb") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[data-icon]:before {
+  font-family: "filesharingapp-shaheb" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "filesharingapp-shaheb" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-paper-plane:before {
+  content: "\61"; }
+
+.icon-mouse-pointer:before {
+  content: "\62"; }
+
+.icon-upload:before {
+  content: "\63"; }
+
+.icon-upload-cloud:before {
+  content: "\64"; }
+
+.icon-download:before {
+  content: "\65"; }
+
+.icon-picture-streamline:before {
+  content: "\66"; }
+
+.icon-picture-streamline-multi:before {
+  content: "\67"; }
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #0064b1;
+  color: #808080; }
+
+.app-layout {
+  display: grid;
+  justify-content: center; }
+
+.app-container {
+  width: 60vw;
+  display: grid;
+  grid-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  grid-template-columns: 1fr auto; }
+  .app-container .app-header {
+    color: #e3e3e3;
+    user-select: none; }
+    .app-container .app-header .app-site-info {
+      font-family: "Roboto", sans-serif;
+      font-weight: 300;
+      padding: 10px; }
+      .app-container .app-header .app-site-info .heading {
+        font-size: 4vw !important;
+        font-weight: bold;
+        margin: 0px;
+        padding: 0px;
+        color: #FFFFFF; }
+        .app-container .app-header .app-site-info .heading .icon-paper-plane {
+          font-size: 3vw !important; }
+      .app-container .app-header .app-site-info .site-title {
+        margin-top: 20px;
+        font-size: 3vw; }
+      .app-container .app-header .app-site-info .site-moto {
+        margin-top: 10px;
+        font-size: 2vw; }
+      @media only screen and (max-width: 768px) {
+        .app-container .app-header .app-site-info .heading {
+          font-size: 10vw !important;
+          text-align: center; }
+          .app-container .app-header .app-site-info .heading .icon-paper-plane {
+            font-size: 8vw !important; }
+        .app-container .app-header .app-site-info .site-title {
+          display: none; }
+        .app-container .app-header .app-site-info .site-moto {
+          display: none; } }
+  .app-container .app-content {
+    display: grid;
+    justify-content: center; }
+    .app-container .app-content .app-card {
+      display: block;
+      width: 500px;
+      border-radius: 10px; }
+      .app-container .app-content .app-card .app-card-header {
+        background-color: #e3e3e3;
+        color: #444444;
+        padding: 20px; }
+      .app-container .app-content .app-card .app-card-content {
+        background: white;
+        color: #444444;
+        padding: 10px; }
+
+.app-file-select-zone {
+  text-align: center;
+  background-color: #e3e3e3;
+  color: #808080; }
+  .app-file-select-zone.error {
+    color: red !important; }
+    .app-file-select-zone.error label {
+      border: 2px dashed red !important;
+      color: red !important; }
+  .app-file-select-zone label {
+    display: block;
+    border: 2px dashed #808080;
+    padding: 10px; }
+    .app-file-select-zone label input {
+      position: fixed;
+      top: -99999px; }
+  .app-file-select-zone .app-upload-description {
+    font-size: 15px;
+    margin-top: 10px; }
+    .app-file-select-zone .app-upload-description .total-files-count {
+      font-size: 12px;
+      color: #0064b1;
+      padding-top: 5px; }
+  .app-file-select-zone .text-uppercase {
+    text-transform: uppercase; }
+  .app-file-select-zone .app-upload-icon {
+    display: block;
+    height: 100px;
+    width: 100px;
+    margin: 10px auto 20px; }
+    .app-file-select-zone .app-upload-icon.icon-picture-streamline, .app-file-select-zone .app-upload-icon.icon-picture-streamline-multi {
+      font-size: 100px;
+      user-select: none; }
+
+.app-form-item {
+  padding: 10px; }
+  .app-form-item.error {
+    color: red !important; }
+    .app-form-item.error label span {
+      color: red !important; }
+    .app-form-item.error ::placeholder {
+      color: red !important; }
+    .app-form-item.error input {
+      border: 1px solid red !important;
+      color: red !important; }
+  .app-form-item .label-title {
+    display: block;
+    padding: 20px 0 5px 0;
+    color: rgba(123, 123, 123, 0.9);
+    font-size: 13px; }
+  .app-form-item input,
+  .app-form-item textarea {
+    width: 97%;
+    height: 40px;
+    border: 1px solid #e3e3e3;
+    padding-left: 10px;
+    transition: all 0.3s ease-in; }
+    .app-form-item input:focus, .app-form-item input:active,
+    .app-form-item textarea:focus,
+    .app-form-item textarea:active {
+      outline: none;
+      border: 1px solid #0064b1; }
+    .app-form-item input:hover,
+    .app-form-item textarea:hover {
+      border: 1px solid #0064b1; }
+    .app-form-item input textarea::placeholder,
+    .app-form-item textarea textarea::placeholder {
+      color: #aaaaaa; }
+  .app-form-item ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #aaaaaa;
+    opacity: 1;
+    /* Firefox */ }
+  .app-form-item :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #aaaaaa; }
+  .app-form-item ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #aaaaaa; }
+  .app-form-item textarea {
+    height: 100px;
+    color: #aaaaaa; }
+  .app-form-item button {
+    padding: 15px;
+    width: 100%;
+    background-color: #0064b1;
+    color: #FFFFFF;
+    font-weight: 700;
+    user-select: none;
+    transition: all 0.3s ease-in;
+    border: none;
+    border-radius: 4px; }
+    .app-form-item button:focus, .app-form-item button:active {
+      outline: none; }
+    .app-form-item button:hover {
+      background-color: tomato;
+      color: #FFFFFF;
+      box-shadow: 3px 3px 10px #5a5959b6;
+      cursor: pointer; }
+
+.app-files-selected {
+  display: grid;
+  position: relative;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  /* Works on Chrome/Edge/Safari */ }
+  .app-files-selected::-webkit-scrollbar {
+    width: 12px;
+    height: 12px; }
+  .app-files-selected::-webkit-scrollbar-track {
+    background: #e3e3e3; }
+  .app-files-selected::-webkit-scrollbar-thumb {
+    background-color: tomato;
+    border-radius: 20px;
+    border: 2px solid #FFFFFF; }
+  .app-files-selected .app-files-selected-item {
+    background-color: #FFFFFF;
+    display: grid;
+    grid-template-columns: 1fr 20px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #808080;
+    margin-bottom: 5px; }
+    .app-files-selected .app-files-selected-item .file-action {
+      text-align: center; }
+    .app-files-selected .app-files-selected-item .file-action-btn {
+      background: none;
+      border: none;
+      outline: none;
+      border-radius: 18%; }
+      .app-files-selected .app-files-selected-item .file-action-btn:hover {
+        background: tomato;
+        color: #FFFFFF;
+        outline: none; }
+      .app-files-selected .app-files-selected-item .file-action-btn:active {
+        background: #0064b1;
+        color: #FFFFFF; }
+
+.app-card-content.uploading, .app-card-content.app-card-upload-sent, .app-card-content.downloading {
+  padding: 50px 30px !important;
+  border-radius: 10px;
+  user-select: none; }
+  .app-card-content.uploading .app-home-uploading-icon, .app-card-content.uploading .app-home-uploading-sent-icon, .app-card-content.uploading .app-home-download-icon, .app-card-content.app-card-upload-sent .app-home-uploading-icon, .app-card-content.app-card-upload-sent .app-home-uploading-sent-icon, .app-card-content.app-card-upload-sent .app-home-download-icon, .app-card-content.downloading .app-home-uploading-icon, .app-card-content.downloading .app-home-uploading-sent-icon, .app-card-content.downloading .app-home-download-icon {
+    color: tomato;
+    text-align: center; }
+    .app-card-content.uploading .app-home-uploading-icon i, .app-card-content.uploading .app-home-uploading-sent-icon i, .app-card-content.uploading .app-home-download-icon i, .app-card-content.app-card-upload-sent .app-home-uploading-icon i, .app-card-content.app-card-upload-sent .app-home-uploading-sent-icon i, .app-card-content.app-card-upload-sent .app-home-download-icon i, .app-card-content.downloading .app-home-uploading-icon i, .app-card-content.downloading .app-home-uploading-sent-icon i, .app-card-content.downloading .app-home-download-icon i {
+      font-size: 8vw;
+      border-radius: 49%;
+      border: 1px solid tomato;
+      padding: 20px;
+      display: block;
+      width: 10vw;
+      margin: 0 auto;
+      margin-bottom: 20px; }
+    .app-card-content.uploading .app-home-uploading-icon h2, .app-card-content.uploading .app-home-uploading-sent-icon h2, .app-card-content.uploading .app-home-download-icon h2, .app-card-content.app-card-upload-sent .app-home-uploading-icon h2, .app-card-content.app-card-upload-sent .app-home-uploading-sent-icon h2, .app-card-content.app-card-upload-sent .app-home-download-icon h2, .app-card-content.downloading .app-home-uploading-icon h2, .app-card-content.downloading .app-home-uploading-sent-icon h2, .app-card-content.downloading .app-home-download-icon h2 {
+      font-size: 3vh;
+      line-height: 3vh;
+      color: tomato; }
+
+.app-card-content .app-home-upload-sent-message, .app-card-content .app-home-download-message {
+  padding: 20px 0;
+  color: #808080;
+  text-align: center;
+  font-size: 2vh;
+  line-height: 3vh; }
+
+.app-card-content .app-home-uploading-total {
+  color: tomato;
+  text-align: left;
+  padding: 50px 0 10px 0px; }
+
+.app-card-content .app-home-uploading-state {
+  color: tomato;
+  display: grid;
+  grid-template-columns: 1fr auto; }
+
+.app-card-content .app-home-uploading-progress {
+  height: 15px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #e3e3e3;
+  overflow: hidden;
+  margin-bottom: 10px;
+  position: relative; }
+  .app-card-content .app-home-uploading-progress .app-home-progress-bar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 15px;
+    background-color: tomato; }
+
+.app-card-content .app-home-uploading-action .cancel, .app-card-content .app-home-uploading-action .sentBtn, .app-card-content .app-home-uploading-action .viewFiles, .app-card-content .app-home-uploading-action .downloadBtn, .app-card-content .app-home-sent-action .cancel, .app-card-content .app-home-sent-action .sentBtn, .app-card-content .app-home-sent-action .viewFiles, .app-card-content .app-home-sent-action .downloadBtn, .app-card-content .app-home-download-action .cancel, .app-card-content .app-home-download-action .sentBtn, .app-card-content .app-home-download-action .viewFiles, .app-card-content .app-home-download-action .downloadBtn {
+  width: 100%;
+  height: 60px;
+  background: #0064b1;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: 0;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 20px;
+  outline: none; }
+  .app-card-content .app-home-uploading-action .cancel:hover, .app-card-content .app-home-uploading-action .cancel:active, .app-card-content .app-home-uploading-action .sentBtn:hover, .app-card-content .app-home-uploading-action .sentBtn:active, .app-card-content .app-home-uploading-action .viewFiles:hover, .app-card-content .app-home-uploading-action .viewFiles:active, .app-card-content .app-home-uploading-action .downloadBtn:hover, .app-card-content .app-home-uploading-action .downloadBtn:active, .app-card-content .app-home-sent-action .cancel:hover, .app-card-content .app-home-sent-action .cancel:active, .app-card-content .app-home-sent-action .sentBtn:hover, .app-card-content .app-home-sent-action .sentBtn:active, .app-card-content .app-home-sent-action .viewFiles:hover, .app-card-content .app-home-sent-action .viewFiles:active, .app-card-content .app-home-sent-action .downloadBtn:hover, .app-card-content .app-home-sent-action .downloadBtn:active, .app-card-content .app-home-download-action .cancel:hover, .app-card-content .app-home-download-action .cancel:active, .app-card-content .app-home-download-action .sentBtn:hover, .app-card-content .app-home-download-action .sentBtn:active, .app-card-content .app-home-download-action .viewFiles:hover, .app-card-content .app-home-download-action .viewFiles:active, .app-card-content .app-home-download-action .downloadBtn:hover, .app-card-content .app-home-download-action .downloadBtn:active {
+    background-color: tomato; }
+  .app-card-content .app-home-uploading-action .cancel a, .app-card-content .app-home-uploading-action .sentBtn a, .app-card-content .app-home-uploading-action .viewFiles a, .app-card-content .app-home-uploading-action .downloadBtn a, .app-card-content .app-home-sent-action .cancel a, .app-card-content .app-home-sent-action .sentBtn a, .app-card-content .app-home-sent-action .viewFiles a, .app-card-content .app-home-sent-action .downloadBtn a, .app-card-content .app-home-download-action .cancel a, .app-card-content .app-home-download-action .sentBtn a, .app-card-content .app-home-download-action .viewFiles a, .app-card-content .app-home-download-action .downloadBtn a {
+    color: #FFFFFF;
+    text-decoration: none; }
+
+.app-download-file-info ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr; }
+
+.app-home-download-file-list .app-download-file-item {
+  display: grid;
+  grid-template-columns: 1fr 10%;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  align-items: center;
+  border-bottom: 1px solid #e3e3e3;
+  color: #808080;
+  overflow-x: auto; }
+  .app-home-download-file-list .app-download-file-item:hover {
+    color: tomato; }
+  .app-home-download-file-list .app-download-file-item .item-name {
+    white-space: wrap;
+    display: inline;
+    word-break: break-all; }
+  .app-home-download-file-list .app-download-file-item .download-action {
+    text-align: right; }
+  .app-home-download-file-list .app-download-file-item .item-download {
+    font-size: 3vh;
+    text-align: right; }
+    .app-home-download-file-list .app-download-file-item .item-download:hover {
+      color: tomato;
+      cursor: pointer; }
+  .app-home-download-file-list .app-download-file-item .download-action a {
+    color: #808080;
+    text-decoration: none; }
+
+@media only screen and (max-width: 768px) {
+  .app-container {
+    width: 95vw;
+    padding: 10px;
+    grid-template-columns: 1fr;
+    justify-content: start;
+    align-items: start;
+    height: auto;
+    transition: all 0.5s ease-out; }
+    .app-container .app-header .app-card,
+    .app-container .app-content .app-card {
+      width: 90vw !important; }
+    .app-container .app-header .site-title,
+    .app-container .app-content .site-title {
+      font-size: 6vw !important; }
+    .app-container .app-header h1,
+    .app-container .app-content h1 {
+      font-size: 8vw !important; }
+    .app-container .app-header .site-moto,
+    .app-container .app-content .site-moto {
+      margin-top: 5px;
+      font-size: 4vw !important; } }
+
+@media only screen and (max-width: 1200px) {
+  .app-container {
+    width: 90vw !important; } }
+
+@media only screen and (max-width: 425px) {
+  .app-card {
+    width: 80vw !important; } }
